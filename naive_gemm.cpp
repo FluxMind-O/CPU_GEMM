@@ -7,7 +7,7 @@ int main(){
     int n=1024;
     std::vector<float> a(n*n),b(n*n),c(n*n,0);
  
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n*n; i++)
     {
         a[i]=1.0;
         b[i]=2.0;
