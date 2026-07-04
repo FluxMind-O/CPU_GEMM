@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520">
+  <rect width="100%" height="100%" fill="white"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold">GEMM 各版本 GFLOPS 趋势 (n=1024)</text>
+  
+  <!-- 坐标轴 -->
+  <line x1="80" y1="450" x2="750" y2="450" stroke="black" stroke-width="2"/>
+  <line x1="80" y1="50" x2="80" y2="450" stroke="black" stroke-width="2"/>
+  
+  <!-- Y轴刻度和网格线 -->
+  <text x="65" y="455" text-anchor="middle" font-family="Arial" font-size="12">0</text>
+  <line x1="80" y1="450" x2="750" y2="450" stroke="#ddd" stroke-width="1"/>
+  <text x="65" y="355" text-anchor="middle" font-family="Arial" font-size="12">25</text>
+  <line x1="80" y1="350" x2="750" y2="350" stroke="#ddd" stroke-width="1"/>
+  <text x="65" y="255" text-anchor="middle" font-family="Arial" font-size="12">50</text>
+  <line x1="80" y1="250" x2="750" y2="250" stroke="#ddd" stroke-width="1"/>
+  <text x="65" y="155" text-anchor="middle" font-family="Arial" font-size="12">75</text>
+  <line x1="80" y1="150" x2="750" y2="150" stroke="#ddd" stroke-width="1"/>
+  <text x="65" y="55" text-anchor="middle" font-family="Arial" font-size="12">100</text>
+  <line x1="80" y1="50" x2="750" y2="50" stroke="#ddd" stroke-width="1"/>
+  
+  <!-- 折线 -->
+  <polyline points="200,437.60 333,320.32 466,211.30 600,53.85" fill="none" stroke="#3498db" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- 数据点和数值 -->
+  <circle cx="200" cy="437.60" r="6" fill="white" stroke="#3498db" stroke-width="3"/>
+  <text x="200" y="425" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">3.10</text>
+  <text x="200" y="475" text-anchor="middle" font-family="Arial" font-size="12">Naive(ijk)</text>
+  
+  <circle cx="333" cy="320.32" r="6" fill="white" stroke="#3498db" stroke-width="3"/>
+  <text x="333" y="308" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">32.42</text>
+  <text x="333" y="475" text-anchor="middle" font-family="Arial" font-size="12">Naive(ikj)</text>
+  
+  <circle cx="466" cy="211.30" r="6" fill="white" stroke="#3498db" stroke-width="3"/>
+  <text x="466" y="199" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">59.67</text>
+  <text x="466" y="475" text-anchor="middle" font-family="Arial" font-size="12">OpenMP</text>
+  
+  <circle cx="600" cy="53.85" r="6" fill="white" stroke="#3498db" stroke-width="3"/>
+  <text x="600" y="42" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">99.04</text>
+  <text x="600" y="475" text-anchor="middle" font-family="Arial" font-size="12">Tiling</text>
+  
+  <!-- Y轴标题 -->
+  <text x="25" y="250" text-anchor="middle" font-family="Arial" font-size="14" transform="rotate(-90, 25, 250)">GFLOPS</text>
+</svg>

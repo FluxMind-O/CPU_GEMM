@@ -1,0 +1,14 @@
+# 编译产物
+naive_ijk
+naive_ikj
+openmp
+tiling
+naive_gemm
+
+# C++ 编译常见忽略
+*.o
+*.out
+*.exe
+
+# 旧文件
+naive_gemm.cpp
