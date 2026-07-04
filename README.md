@@ -4,9 +4,9 @@
 
 ## 折线图
 
-![GEMM GFLOPS 对比](show/GEMM_GFLOPS_chart.svg)
+![GEMM GFLOPS 对比](GEMM_GFLOPS_chart.svg)
 
-> 提示：在浏览器中直接打开 `show/GEMM_GFLOPS_chart.svg` 即可查看高清图表。
+> 提示：在浏览器中直接打开 `GEMM_GFLOPS_chart.svg` 即可查看高清图表。
 
 ## 对比数据
 
