@@ -2,7 +2,7 @@
 
 矩阵规模：`n = 1024`（1024×1024 单精度浮点矩阵乘法）
 
-## 柱状图
+## 折线图
 
 ![GEMM GFLOPS 对比](GEMM_GFLOPS_chart.svg)
 
