@@ -5,17 +5,17 @@
 ## 项目结构
 
 ```text
-.
-├── cpu/
-│   ├── src/          # CPU 版本实现 (Month 3-4)
+GEMM-research/
+├── cpu/              # CPU 版本【已完成】
+│   ├── src/          
 │   │   ├── naive_ijk.cpp
 │   │   ├── naive_ikj.cpp
 │   │   ├── openmp.cpp
 │   │   └── tiling.cpp
 │   ├── include/      # CPU 头文件
 │   └── main.cpp      # CPU 统一测试入口
-├── gpu/
-│   ├── src/          # CUDA 版本实现 (Month 5-7)
+├── gpu/              # GPU 版本【敬请期待】
+│   ├── src/          
 │   ├── include/      # GPU 头文件
 │   └── main.cu       # GPU 测试与验证入口
 ├── common/
