@@ -1,14 +1,21 @@
 # 编译产物
-naive_ijk
-naive_ikj
-openmp
-tiling
-naive_gemm
-
-# C++ 编译常见忽略
 *.o
-*.out
 *.exe
+*.out
+*.a
+*.so
+*.dll
 
-# 旧文件
-naive_gemm.cpp
+# nsys 报告
+*.nsys-rep
+nsys-rep/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 系统文件
+.DS_Store
+Thumbs.db
