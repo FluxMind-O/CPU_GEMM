@@ -5,6 +5,7 @@
 *.a
 *.so
 *.dll
+cpu_gemm
 
 # nsys 报告
 *.nsys-rep
