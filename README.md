@@ -38,12 +38,12 @@ GEMM-research/
 
 ## 对比数据
 
-| 版本 | 时间 (S) | GFLOPS |
-|------|----------|--------|
-| Naive(ijk) | 0.692892 | 3.10 |
-| Naive(ikj) | 0.066232 | 32.42 |
-| OpenMP | 0.035987 | 59.67 |
-| Tiling | 0.021683 | 99.04 |
+| 版本         | 时间 (S)   | GFLOPS |
+| ---------- | -------- | ------ |
+| Naive(ijk) | 0.692892 | 3.10   |
+| Naive(ikj) | 0.066232 | 32.42  |
+| OpenMP     | 0.035987 | 59.67  |
+| Tiling     | 0.021683 | 99.04  |
 
 ## 说明
 
@@ -52,15 +52,6 @@ GEMM-research/
 - **OpenMP**：在 Naive(ikj) 基础上使用 OpenMP 多线程并行（4 线程），性能再提升约 1.8 倍。
 - **Tiling**：分块 + OpenMP + SIMD 向量化，充分利用缓存和寄存器，性能最高，约为最慢版本的 32 倍。
 
-## IDE 配置
-
-项目使用 `compile_flags.txt` 配置 clangd（VS Code 等编辑器的 C++ 语言服务），内容仅为 `-I.`，让 IDE 从项目根目录解析 `#include "common/utils.h"` 等头文件：
-
-```text
--I.
-```
-
-如打开项目后头文件仍报红色波浪线，尝试重启clangd（VS Code: `Ctrl+Shift+P` → **clangd: Restart**）。
 
 ## 编译与运行
 
@@ -94,3 +85,4 @@ nvcc -I. gpu/main.cu -o gpu_gemm
 ```
 
 > 运行后终端会直接输出最小运行时间、对应的 **GFLOPS** 值以及结果验证状态。
+
