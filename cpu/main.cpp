@@ -12,7 +12,7 @@ int main(){
 
     int n=1024;
     std::vector<float> a(n*n), b(n*n), c(n*n);
-    float expected=2.0f*n;  //a=1.0,b=2.0 => c[i][j]=sum(1.0*2.0)=2.0*n
+    float expected=2.0f*n;  //a=1.0,b=2.0 => c[i][j]=sum(1.0*2.0)=2.0*n(验证结果是否正确)
     init_matrices(a,b,n);
 
     //Naive(ijk)                 （四个版本都是函数模板+lambda表达式)
