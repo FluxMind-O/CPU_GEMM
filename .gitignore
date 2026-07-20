@@ -6,6 +6,7 @@
 *.so
 *.dll
 cpu_gemm
+gpu_gemm
 
 # nsys 报告
 *.nsys-rep

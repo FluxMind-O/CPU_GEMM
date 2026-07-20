@@ -14,7 +14,7 @@ GEMM-research/
 │   │   └── tiling.cpp
 │   ├── include/      # CPU 头文件
 │   └── main.cpp      # CPU 统一测试入口
-├── gpu/              # GPU 版本【敬请期待】
+├── gpu/              # GPU 版本【进行中】
 │   ├── src/          
 │   ├── include/      # GPU 头文件
 │   └── main.cu       # GPU 测试与验证入口
@@ -38,20 +38,28 @@ GEMM-research/
 
 ## 对比数据
 
-| 版本         | 时间 (S)   | GFLOPS |
-| ---------- | -------- | ------ |
-| Naive(ijk) | 0.692892 | 3.10   |
-| Naive(ikj) | 0.066232 | 32.42  |
-| OpenMP     | 0.035987 | 59.67  |
-| Tiling     | 0.021683 | 99.04  |
+| 版本         | 时间 (S)                           | GFLOPS |
+| ---------- | -------------------------------- | ------ |
+| <br />     |                       **CPU部分：** | <br /> |
+| Naive(ijk) | 0.692892                         | 3.10   |
+| Naive(ikj) | 0.066232                         | 32.42  |
+| OpenMP     | 0.035987                         | 59.67  |
+| Tiling     | 0.021683                         | 99.04  |
+| <br />     |                       **GPU部分**： | <br /> |
+| Naive\_GPU | 0.004627                         | 464.09 |
 
 ## 说明
+
+**CPU部分：**
 
 - **Naive(ijk)**：最基础的三重循环实现，按 i-j-k 顺序遍历，缓存不友好，性能最低。
 - **Naive(ikj)**：调整循环顺序为 i-k-j，提高了空间局部性，性能提升约 10 倍。
 - **OpenMP**：在 Naive(ikj) 基础上使用 OpenMP 多线程并行（4 线程），性能再提升约 1.8 倍。
 - **Tiling**：分块 + OpenMP + SIMD 向量化，充分利用缓存和寄存器，性能最高，约为最慢版本的 32 倍。
 
+**GPU部分：**
+
+- **Naive\_GPU**：最基础的 CUDA 实现，使用 16×16 线程块的二维网格映射，每个线程计算输出矩阵的一个元素，性能约为最快 CPU 版本的 4.7 倍。
 
 ## 编译与运行
 
@@ -72,7 +80,7 @@ g++ -fopenmp -O3 -march=native -I. cpu/main.cpp cpu/src/naive_ijk.cpp cpu/src/na
 ### GPU 入口（CUDA）
 
 ```bash
-nvcc -I. gpu/main.cu -o gpu_gemm
+nvcc -I. -Icommon -Igpu/include gpu/main.cu gpu/src/naive_g.cu -o gpu_gemm
 ./gpu_gemm
 ```
 

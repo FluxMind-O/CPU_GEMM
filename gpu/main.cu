@@ -12,7 +12,7 @@ int main(){
     init_matrices(h_a,h_b,N);
     const size_t M=static_cast<size_t>(N)*N*sizeof(float);
 
-    float *d_a ,*d_b ,d_c;
+    float *d_a ,*d_b ,*d_c;
     cudaMalloc(&d_a,M);
     cudaMalloc(&d_b,M);
     cudaMalloc(&d_c,M);
@@ -20,11 +20,19 @@ int main(){
     cudaMemcpy(d_a,h_a.data(),M,cudaMemcpyHostToDevice);
     cudaMemcpy(d_b,h_b.data(),M,cudaMemcpyHostToDevice);
 
-
-
+    double t=benchmark([&](){
+        run_naiveg_gemm(d_a ,d_b ,d_c ,N);
+        cudaDeviceSynchronize();
+    });
+    cudaMemcpy(h_c.data(),d_c,M,cudaMemcpyDeviceToHost);
+    if(verify(h_c,N,expected)){   
+        std::cout<<"Time: "<<t<<" S"<<std::endl;
+        std::cout<<"Naive_GPU的GFLOPS："<<(2.0* N*N*N/t/1e9)<<std::endl<<std::endl;
+    }else{
+        std::cout<<"验证失败！请检查 Kernel 索引映射或内存越界"<<std::endl;
+    }
     
-    
-
+    return 0;
 
 }
 

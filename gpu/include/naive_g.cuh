@@ -1,8 +1,8 @@
-#pragame once
+#pragma once
 
 #include<iostream>
-#include<cudaRuntime.h>
-#include<cstdlib.h>
+#include<cuda_runtime.h>
+#include<cstdlib>
 
-void run_naiveg_gemm(const folat* d_a ,const folat* d_b ,folat* d_c ,int N);
+void run_naiveg_gemm(const float* d_a ,const float* d_b ,float* d_c ,int N);
 
