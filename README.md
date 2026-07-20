@@ -15,7 +15,8 @@ GEMM-research/
 │   ├── include/      # CPU 头文件
 │   └── main.cpp      # CPU 统一测试入口
 ├── gpu/              # GPU 版本【进行中】
-│   ├── src/          
+│   ├── src/
+│   │   └── naive_g.cu
 │   ├── include/      # GPU 头文件
 │   └── main.cu       # GPU 测试与验证入口
 ├── common/
