@@ -10,7 +10,7 @@ __global__ void add(const float* a ,const float* b ,float* c,int N){
         float sum=0.0f;
 
         for (int i = 0; i < N; i++)
-          sum += a[row*N+i]*b[col*N+i];
+          sum += a[row*N+i]*b[i*N+col];
         
         c[row*N+col]=sum;
     }
